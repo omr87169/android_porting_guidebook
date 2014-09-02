@@ -25,6 +25,7 @@ trouble if you take the time to do it.
 ####First, set up some directories.
 These directories will hold all the files you require for building your Android
 ROM.  
+
         mkdir -p ~/android/system
 
 /android is the directory where we will store a few helper scripts for setting
@@ -35,14 +36,17 @@ created.
 
 ####Second, get some dependencies.
 In case you don't have debootstrap installed already, install it.  
+
         sudo apt-get install debootstrap
 
 debootstrap creates a minimal Debian install in a directory on your computer.  
 
 ####Third, run debootstrap.
 Change directory to the helper script directory.  
+
         cd ~/android
 Run debootstrap to create a Debian i386 install in the system directory.  
+
         sudo debootstrap --arch i386 wheezy system
 Alternatively, create a Debian amd64 install in the system directory.  
 
@@ -53,17 +57,21 @@ directory called system."
 ####Fourth, mount /proc, /sys and /dev.
 Next, you will need to mount some parts of the host filesystem in order to use
 the system you have just created.  
+
         sudo mount proc system/proc -t proc
         sudo mount sysfs system/sys -t sysfs
         sudo mount --bind system/dev /dev
 
 ####Fifth, enter the chroot and allow it to draw from wheezy-backports.
 Copy the local hosts file into the development environment  
+
         sudo cp /etc/hosts system/etc/hosts
 Copy the locally mounted devices into the development environment.  
+
         sudo cp /proc/mounts system/etc/mtab
 Now we're ready to enter the chroot. This time, we're just going to set up the
 wheezy-backports repository, update the installation, and quit.  
+
         sudo chroot system
         mkdir -p /home/android/
         echo "
@@ -86,6 +94,7 @@ automatically.
 
 Create a file containing the script to enter the chroot in the helper scripts
 directory.  
+
         echo "#! /bin/sh
         sudo mount proc ~/android/system/proc -t proc
         sudo mount sysfs ~/android/system/sys -t sysfs
@@ -95,12 +104,14 @@ directory.
         sudo chroot ~/android/system/ /bin/sh -c "cd /home/android && bash"
         " > ~/android/enter.sh
 Make the file executable.  
+
         chmod +x ~/android/enter.sh
 
 ####Finally, let's review the workflow for those new scripts.  
 To use the enter.sh script, you just change directory to the helper scripts
 directory and run ./enter.sh. Because it uses sudo, you will be asked for your
 password.  
+
         cd ~/android/
         ./enter.sh
 
@@ -108,6 +119,7 @@ password.
 Leave the chroot.  
 
 Type exit.  
+
         exit
 
 Installing the building dependencies
@@ -124,6 +136,7 @@ When you want to work on your Android ROM, you will need to enter your chroot
 development environment.  
 
 Now that you have your chroot environment set up, enter it.  
+
         cd ~/android
         ./enter.sh
 
@@ -131,12 +144,14 @@ Now that you have your chroot environment set up, enter it.
 Now just use apt to install the build dependencies.  
 
 For 386 build environments, install these packages.  
+
         apt-get install -t wheezy-backports bison flex git-core gperf \
         libncurses-dev build-essential squashfs-tools openjdk-6-jre \
         openjdk-6-jdk pngcrush wget zip zlib1g-dev lzma libxml2-utils \
         build-essential libesd0-dev libsdl1.2-dev libwxgtk2.8-dev libxml2 lzop \
         xsltproc zip
 For amd64 build environments, also install these packages.  
+
         apt-get install libc6-dev-i386 gcc-multilib g++-multilib lib32z1-dev \
         lib32readline5-dev lib32ncurses5-dev 
 
@@ -150,10 +165,13 @@ to the required library in the directory where the environment expects it to be.
 
 for example, should you see zconf.h missing, you probably need to do something
 like  
+
         sudo ln -s /usr/include/x86_64-linux-gnu/zconf.h /usr/lib/zconf.h
 Similarly, if libstdc++.so is missing,  
+
         sudo ln -s /usr/lib32/libstdc++.so.6.0.14 /usr/lib32/libstdc++.so
 or libGL.so  
+
         sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 \
         /usr/lib/i386-linux-gnu/libGL.so
 
@@ -183,8 +201,10 @@ manifests. I will go into more detail about repo in the second half of this
 part of the book.  
 
 Installing repo is easy, just download the file to your /usr/bin directory.  
+
         curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo
 Then, make it executable.  
+
         chmod a+x /usr/bin/repo
 
 This installs repo directly into your path at /usr/bin/repo. The Android
@@ -199,9 +219,11 @@ chroot development environment. This can be done using apt, or by installing the
 SDK tools from source.  
 
 From outside the chroot development environment, run  
+
         sudo apt-get install android-tools*
 
 Or, from inside the chroot development environment, run  
+
         apt-get install android-tools
 
 A one-time script which does all this for you
