@@ -267,7 +267,7 @@ A one-time script which does all this for you
 
 Further Citations
 -----------------
-Build Dependencies Installation, http://redmine.replicant.us/projects/replicant/wiki/BuildDependenciesInstallation, Replicant Wiki, Replicant Project
+Build Dependencies Installation, http://redmine.replicant.us/projects/replicant/wiki/BuildDependenciesInstallation, Replicant Wiki, Replicant Project  
 Initializing a Build Environment, http://source.android.com/source/initializing.html Android Developers Guide, Google
 
 Further Reading:
