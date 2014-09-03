@@ -12,6 +12,7 @@ done
 sudo mount proc system/proc -t proc
 sudo mount sysfs system/sys -t sysfs
 sudo mount --bind system/dev /dev
+sudo mount --bind /dev/pts ~/android/system/dev/pts
 sudo cp /etc/hosts system/etc/hosts
 sudo cp /proc/mounts system/etc/mtab
 sudo chroot system
@@ -27,6 +28,7 @@ echo '#! /bin/sh
 sudo mount proc ~/android/system/proc -t proc
 sudo mount sysfs ~/android/system/sys -t sysfs
 sudo mount --bind ~/android/system/dev /dev
+sudo mount --bind /dev/pts ~/android/system/dev/pts
 sudo cp /proc/mounts ~/android/system/etc/mtab
 sudo cp /etc/hosts ~/android/system/etc/hosts
 sudo chroot ~/android/system/ /bin/sh -c "cd /home/android && bash"
@@ -41,7 +43,7 @@ apt-get install -t wheezy-backports bison flex git-core gperf \
 libncurses-dev build-essential squashfs-tools openjdk-6-jre \
 openjdk-6-jdk pngcrush wget zip zlib1g-dev lzma libxml2-utils \
 build-essential libesd0-dev libsdl1.2-dev libwxgtk2.8-dev libxml2 lzop \
-xsltproc zip
+xsltproc zip schedtool locales
 case a in
         amd64 ) apt-get install libc6-dev-i386 gcc-multilib \
         g++-multilib lib32z1-dev lib32readline5-dev lib32ncurses5-dev 

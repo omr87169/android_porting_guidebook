@@ -99,6 +99,7 @@ directory.
         sudo mount proc ~/android/system/proc -t proc
         sudo mount sysfs ~/android/system/sys -t sysfs
         sudo mount --bind ~/android/system/dev /dev
+        sudo mount --bind /dev/pts /srv/chroot/wheezy/dev/pts
         sudo cp /proc/mounts ~/android/system/etc/mtab
         sudo cp /etc/hosts ~/android/system/etc/hosts
         sudo chroot ~/android/system/ /bin/sh -c "cd /home/android && bash"
@@ -149,7 +150,7 @@ For 386 build environments, install these packages.
         libncurses-dev build-essential squashfs-tools openjdk-6-jre \
         openjdk-6-jdk pngcrush wget zip zlib1g-dev lzma libxml2-utils \
         build-essential libesd0-dev libsdl1.2-dev libwxgtk2.8-dev libxml2 lzop \
-        xsltproc zip
+        xsltproc zip schedtool locales
 For amd64 build environments, also install these packages.  
 
         apt-get install libc6-dev-i386 gcc-multilib g++-multilib lib32z1-dev \
@@ -257,6 +258,7 @@ A one-time script which does all this for you
         sudo mount proc ~/android/system/proc -t proc
         sudo mount sysfs ~/android/system/sys -t sysfs
         sudo mount --bind ~/android/system/dev /dev
+        sudo mount --bind /dev/pts ~/android/system/dev/pts
         sudo cp /proc/mounts ~/android/system/etc/mtab
         sudo cp /etc/hosts ~/android/system/etc/hosts
         sudo chroot ~/android/system/ /bin/sh -c "cd /home/android && bash"
@@ -271,7 +273,7 @@ A one-time script which does all this for you
         libncurses-dev build-essential squashfs-tools openjdk-6-jre \
         openjdk-6-jdk pngcrush wget zip zlib1g-dev lzma libxml2-utils \
         build-essential libesd0-dev libsdl1.2-dev libwxgtk2.8-dev libxml2 lzop \
-        xsltproc zip
+        xsltproc zip schedtool locales
         case a in        
                 amd64 ) apt-get install libc6-dev-i386 gcc-multilib \
                 g++-multilib lib32z1-dev lib32readline5-dev lib32ncurses5-dev 
