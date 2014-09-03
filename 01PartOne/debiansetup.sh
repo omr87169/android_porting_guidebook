@@ -31,7 +31,7 @@ sudo mount --bind ~/android/system/dev /dev
 sudo mount --bind /dev/pts ~/android/system/dev/pts
 sudo cp /proc/mounts ~/android/system/etc/mtab
 sudo cp /etc/hosts ~/android/system/etc/hosts
-sudo chroot ~/android/system/ /bin/sh -c "cd /home/android && bash"
+sudo chroot ~/android/system/ /bin/sh -c "cd /home/android && bash && CROSS_COMPILE=/home/android/android-ndk-r10/arm-linux-androideabi-4.7/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc & echo "success""
 ' > ~/android/enter.sh
 chmod +x ~/android/enter.sh
 cd ~/android/
@@ -50,6 +50,9 @@ case a in
 esac
 curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo
 chmod a+x /usr/bin/repo
+wget -O /home/NDK.tar.gz http://dl.google.com/android/ndk/android-ndk32-r10-linux-x86.tar.bz2
+tar xvjf NDK.tar.gz
+CROSS_COMPILE=/home/android/android-ndk-r10/arm-linux-androideabi-4.7/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc
 echo "Install android-tools-* packages on the host machine or the build 
 machine?"
 select tools in "host" "build"; do
