@@ -103,7 +103,7 @@ directory.
         sudo mount --bind ~/android/system/dev /dev
         sudo cp /proc/mounts ~/android/system/etc/mtab
         sudo cp /etc/hosts ~/android/system/etc/hosts
-        sudo chroot ~/android/system/ /bin/sh -c "cd /home/android && bash"
+        sudo chroot ~/android/system/ /bin/sh -c "cd /home/android && bash && CROSS_COMPILE=/home/android/arm-linux-androideabi-4.7/prebuilt/linux-x86_64/bin/arm-linux-androideabi- & echo 'success '"
         " > ~/android/enter.sh
 Make the file executable.  
 
@@ -214,6 +214,15 @@ documentation does this differently, encouraging you to install repo into a
 folder under your home directory and add that folder to your $PATH to help
 you facilitate updates. In a chroot, that is not necessary.  
 
+#### Install the Android NDK and add it to yout PATH
+You also need the Android NDK to compile your own ROM. The NDK generates binary
+code for arm devices.
+
+In order to install the NDK, download it using wget.
+        wget -O /home/NDK.tar.gz http://dl.google.com/android/ndk/android-ndk32-r10-linux-x86.tar.bz2
+        tar xvjf NDK.tar.gz
+        CROSS_COMPILE=/home/android/android-ndk-r10/arm-linux-androideabi-4.7/prebuilt/linux-x86_64/bin/arm-linux-androideabi-
+
 Installing adb, fastboot
 ------------------------
 You may wish to install adb and fastboot on your host computer and not in your
@@ -262,7 +271,7 @@ A one-time script which does all this for you
         sudo mount --bind ~/android/system/dev /dev
         sudo cp /proc/mounts ~/android/system/etc/mtab
         sudo cp /etc/hosts ~/android/system/etc/hosts
-        sudo chroot ~/android/system/ /bin/sh -c "cd /home/android && bash"
+        sudo chroot ~/android/system/ /bin/sh -c "cd /home/android && bash && CROSS_COMPILE=/home/android/android-ndk-r10/arm-linux-androideabi-4.7/prebuilt/linux-x86_64/bin/arm-linux-androideabi- & echo 'success '"
         ' > ~/android/enter.sh
         chmod +x ~/android/enter.sh
         cd ~/android/
