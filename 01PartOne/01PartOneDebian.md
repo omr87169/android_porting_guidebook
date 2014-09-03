@@ -60,6 +60,7 @@ the system you have just created.
 
         sudo mount proc system/proc -t proc
         sudo mount sysfs system/sys -t sysfs
+        sudo mount --bind /dev/pts ~/android/system/dev/pts
         sudo mount --bind system/dev /dev
 
 ####Fifth, enter the chroot and allow it to draw from wheezy-backports.
@@ -98,8 +99,8 @@ directory.
         echo "#! /bin/sh
         sudo mount proc ~/android/system/proc -t proc
         sudo mount sysfs ~/android/system/sys -t sysfs
+        sudo mount --bind /dev/pts ~/android/system/dev/pts
         sudo mount --bind ~/android/system/dev /dev
-        sudo mount --bind /dev/pts /srv/chroot/wheezy/dev/pts
         sudo cp /proc/mounts ~/android/system/etc/mtab
         sudo cp /etc/hosts ~/android/system/etc/hosts
         sudo chroot ~/android/system/ /bin/sh -c "cd /home/android && bash"
@@ -257,8 +258,8 @@ A one-time script which does all this for you
         echo '#! /bin/sh
         sudo mount proc ~/android/system/proc -t proc
         sudo mount sysfs ~/android/system/sys -t sysfs
-        sudo mount --bind ~/android/system/dev /dev
         sudo mount --bind /dev/pts ~/android/system/dev/pts
+        sudo mount --bind ~/android/system/dev /dev
         sudo cp /proc/mounts ~/android/system/etc/mtab
         sudo cp /etc/hosts ~/android/system/etc/hosts
         sudo chroot ~/android/system/ /bin/sh -c "cd /home/android && bash"
