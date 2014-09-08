@@ -37,15 +37,50 @@ they are supported on your device.
 
 Working in the Terminal Emulator
 --------------------------------
-
+Once you've selected your terminal emulator, start it and enter the application
+on your device. The process for determining your what hardware your device is
+using is roughly (turn off device)->(turn on device)->(run dmesg in emulator)->
+(examine the results).
 
 ###Step-by-Step
+Usually, when you are doing this you will be looking for your wifi hardware.
+Here is an example of how to discern what wifi hardware your device is using 
+with dmesg.
 
-####Stop the hardware in question
+####Stop and start the hardware in question
+In order to make sure that a message from the device you are looking for is easy
+to find in the dmesg output, you need to make it do something that will be
+logged. The easiest way to do this, especially with wi-fi, to turn the device
+off, then back on, then immediately run dmesg and examine the output. Just use
+the interface on your Android device.
 
-####
+####Run dmesg, optionally save the output to a file
+Immediately after you turn your wi-fi off and on, open the terminal emulator and
+type  
 
-####
+        dmesg
+
+to display the output immediately, or use
+
+        dmesg > wifi_device_log.log
+
+to save the output to a file on the device and
+
+        cat wifi_device_log.log
+
+to view the output.
+
+If you want to save the output file to your work machine, you will need to use
+"adb shell" to connect to your device and pipe the output of the command to a
+file on your work device.
+
+        adb shell dmesg > wifi_device_log.log
+
+####Examine the output to find the device
+        
+
+Power Tools for use with dmesg, the Advantages of Busybox
+=========================================================
 
 Further Citations
 -----------------
