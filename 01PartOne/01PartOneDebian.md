@@ -214,6 +214,10 @@ documentation does this differently, encouraging you to install repo into a
 folder under your home directory and add that folder to your $PATH to help
 you facilitate updates. In a chroot, that is not necessary.  
 
+Also the name is kind of bullshit. It makes it super hard to find people's forum
+posts about using repo as opposed to searching for other types of repositories.
+Way to think it through, Google.
+
 #### Install the Android NDK and add it to yout PATH
 You also need the Android NDK to compile your own ROM. The NDK generates binary
 code for arm devices.
@@ -304,8 +308,8 @@ A one-time script which does all this for you
 
 Further Citations
 -----------------
-Build Dependencies Installation, http://redmine.replicant.us/projects/replicant/wiki/BuildDependenciesInstallation, Replicant Wiki, Replicant Project  
-Initializing a Build Environment, http://source.android.com/source/initializing.html Android Developers Guide, Google  
+[Build Dependencies Installation,](http://redmine.replicant.us/projects/replicant/wiki/BuildDependenciesInstallation), Replicant Wiki, Replicant Project  
+[Initializing a Build Environment,](http://source.android.com/source/initializing.html) Android Developers Guide, Google  
 
 Further Reading:
 ----------------
