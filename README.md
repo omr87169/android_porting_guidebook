@@ -19,7 +19,7 @@ existing Android phone using *only* software which is freely available for
 anyone possessing it to review, improve, or modify, but the creator of this
 guide is of the opinion that it is important that there should be a "Free 
 Software" program to operate every function of a person's device, even if most 
-users do not employ their use. The reason for I believe this is because when a 
+users do not employ their use. The reason that I believe this is because when a 
 Free Software component is available in addition to a proprietary component, the
 manufacturer has incentive to provide the best service possible because if not,
 that service can be found from the community instead. For these reasons, this
