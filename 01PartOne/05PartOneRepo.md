@@ -8,6 +8,11 @@ you just want to port CyanogenMod to a new device, for example, you only need to
 know about how to initialize, synchronise, and create manifests.  
 
 ###Initializing and Syncing a Repository
+Developed by Google, repo is a tool used to download a large number of git
+repositories using files called "manifests," which are XML files that describe
+the location of a git repository and where to place it in the local source tree.
+Since you are porting, you will eventually need to write your own repo local
+manifests and include your source code.
 
 ####repo init
 To get a copy of the Android source code, you need to initialize the repository,
@@ -24,6 +29,22 @@ This does not download the repository for you, it simply sets up the repository
 for download.  
 
 ####Explore the .repo folder
+
+manifest.xml
+
+manifests.git
+
+manifests
+
+local_manifests
+
+project.list
+
+projects
+
+project-objects
+
+repo
 
 ####repo sync
 Now we download the contents of the source code repository using repo sync. Repo
@@ -44,11 +65,7 @@ Manifests are housed in two directories, the .repo directory, and the
 
 ####Just Enough XML
 
-
-
 ####What's in a Manifest Line
-
-
 
 ####Local Manifests
 

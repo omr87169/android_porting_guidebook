@@ -3,11 +3,11 @@ Android Porting Guidebook
 
 Part One : The Android Build Environment
 ----------------------------------------
-   * Debian, Ubuntu Setup
+   * [Debian, Ubuntu Setup](https://github.com/omr87169/android_porting_guidebook/blob/master/01PartOne/01PartOneDebian.md)
    * Windows, VirtualBox, Debian Setup
    * Fedora, Redhat Setup
    * OSX Setup
-   * repo
+   * [repo](https://github.com/omr87169/android_porting_guidebook/blob/master/01PartOne/05PartOneRepo.md)
    * envsetup.sh
    * breakfast, brunch, lunch
    * Makefiles, .mk, make and mka
@@ -29,6 +29,7 @@ Part Three : Manifests, git and Github
 
 Part Four : Extracting Proprietary Drivers
 ------------------------------------------
+   * [How to use dmesg to examine your hardware](https://github.com/omr87169/android_porting_guidebook/blob/master/04PartFour/01PartFourHowTodmesg.md)
    * The /system/lib directory
    * Researching proprietary drivers
    * Finding similar devices
