@@ -218,7 +218,7 @@ Also the name is kind of bullshit. It makes it super hard to find people's forum
 posts about using repo as opposed to searching for other types of repositories.
 Way to think it through, Google.
 
-#### Install the Android NDK and add it to yout PATH
+####Install the Android NDK and add it to yout PATH
 You also need the Android NDK to compile your own ROM. The NDK generates binary
 code for arm devices.
 
